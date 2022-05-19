@@ -1,0 +1,18 @@
+var currentDoc = app.activeDocument;
+var currentLayer = currentDoc.activeLayer;
+
+function main() {
+
+    //on casse la fonction si le calque selectionné n'est pas un calque de texte
+if (currentLayer.kind != LayerKind.TEXT) {
+    alert("no text layer selected")
+    return;
+}
+
+alert(currentLayer.name + " selected");
+
+
+}
+
+
+main()
