@@ -1,18 +1,29 @@
 var currentDoc = app.activeDocument;
 var currentLayer = currentDoc.activeLayer;
+// var File = File.openDialog('Select Fonts', function (f) { return (f instanceof Folder) || f.name.match(/\.csv$/i);} );
 
 function main() {
 
+for (i=0; i<(allLayers.length) ; i++){
+
+    currentDoc.activeLayer = currentDoc.layers[i];
+    var selectedLayer = currentDoc.activeLayer;
+
     //on casse la fonction si le calque selectionné n'est pas un calque de texte
-if (currentLayer.kind != LayerKind.TEXT) {
-    alert("no text layer selected")
-    return;
+    if (currentLayer.kind != LayerKind.TEXT) {
+        alert("no text layer selected")
+        return; 
+    }
+
+    if (selectedLayer.kind == LayerKind.TEXT){
+        alert(currentLayer.textItem.font);
+    } else {
+        alert(selectedLayer.name + " is not a text layer");
+    }
+
 }
 
-alert(currentLayer.name + " selected");
-
 
 }
 
-
-main()
+main()  
